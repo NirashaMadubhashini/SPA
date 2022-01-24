@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> 745d0f5269fb8fc85d29a0428e31676a00eb4f3c
 This is my very first project made by using CSS FrameWorks.<br>
 There are some links that I use to make this SPA System.
 
