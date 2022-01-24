@@ -22,18 +22,12 @@ github = https://github.com/NirashaMadubhashini
 03.EditProfile
 ![screenshot](assets/posImg/EditProfileInfo.png)
 
-04.AddCustomer
-![screenshot](assets/posImg/AddCustomer.png)
-
-05.AddItem
-![screenshot](assets/posImg/AddItem.png)
-
-06.ManageCustomers
+04.ManageCustomers
 ![screenshot](assets/posImg/Manage%20Customers.png)
 
-07.ManageItems
+05.ManageItems
 ![screenshot](assets/posImg/Manage%20Items.png)
 
-08.PlaceOrder
+06.PlaceOrder
 ![screenshot](assets/posImg/PlaceOrder.png)
 
