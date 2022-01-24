@@ -7,6 +7,7 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/Dashbord.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style/Placeorder.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow ">
@@ -41,6 +42,7 @@
         </ul>
     </div>
 </nav>
+<br>
 
 <div class="container-fluid ms-lg-5">
     <div class="row mt-5">
@@ -75,7 +77,9 @@
 
 </div>
 <br>
-
+<br>
+<br>
+<br>
 <div class="container-fluid">
     <div class="row catagory-row">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 pl-xl-0  pl-md-0 ">
@@ -110,9 +114,10 @@
     </div>
 </div>
 </div>
-<!--<script src="assets/bootstrap/js/jquery-3.5.1.min.js"></script>-->
-<!--<script src="assets/bootstrap/js/bootstrap.min.js"></script>-->
 </div>
+<br><br>
+<br><br>
+<br><br>
 <div class="row  container-fluid mt-3" style="margin:0; padding: 0 ">
     <div class=" col-xl-3 col-lg-3 col-md-6 col-12 ms-5">
         <div class="card bg-light mt-2 ms-5" >
@@ -146,10 +151,16 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="col-12 col-md-4 ms-5 position-absolute top-100 start-50 translate-middle">
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
         <div class="shadow-sm pt-3 pb-5 px-3 py-3 mt-2 border-3 border-dark ">
             <h1 class="h1 mb-3">Customer Manager</h1>
             <div class="mb-3">
@@ -188,6 +199,237 @@
         </tbody>
     </table>
 </div>
-</body>
+<br><br>
+<br><br>
+<br><br>
+<div class="row  container-fluid mt-3" style="margin:0; padding: 0 ">
+    <div class=" col-xl-3 col-lg-3 col-md-6 col-12 ms-5">
+        <div class="card bg-light mt-2 ms-5" >
+            <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Item</div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="itemCode">Item Code</label>
+                        <input type="itemCode" class="form-control" id="itemCode">
 
+                    </div>
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="itemName" class="form-control" id="itemName">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="itemPrice">Item Price</label>
+                        <input type="itemPrice" class="form-control" id="itemPrice">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="quantity" class="form-control" id="quantity">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary"><a href="" class="text-decoration-none text-light">Add</a></button>
+                    <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-light">Cancel</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 ms-5 position-absolute top-200 start-50 translate-middle">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <div class="shadow-sm pt-3 pb-5 px-3 py-3 mt-2 border-3 border-dark ">
+            <h1 class="h1 mb-3">Item Manager</h1>
+            <div class="mb-3">
+                <label class="form-label" for="srcItemCode">Search Item</label>
+                <input class="form-control" id="srcItemCode" placeholder="Item Code, Name" type="text">
+            </div>
+            <button class="btn btn-warning" type="submit">Search</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container table-responsive">
+    <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
+        <thead class="table-info">
+        <tr>
+            <th scope="col">Item Code</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">C001</th>
+            <td>Rice</td>
+            <td>1kg</td>
+            <td>50/=</td>
+            <td>
+                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-info">Update</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div class="row  container-fluid" style="margin:0; padding: 0 ">
+    <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
+        <div class="card bg-light mt-2 ms-5" >
+            <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Order</div>
+            <div class="card-body">
+
+                <div class="form-group ">
+                    <label for="txtOrderId">Order-Id</label>
+                    <input class="form-control" id="txtOrderId" name="OrderId" type="text"placeholder="Auto-Generate">
+                </div>
+                <div class="form-group ">
+                    <label for="txtDate">Date</label>
+                    <input class="form-control" id="txtDate" name="OrderDate" type="date">
+                </div>
+                <div class="form-group ">
+                    <label for="txtTime">Time</label>
+                    <input class="form-control" id="txtTime" name="OrderTime" type="time">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
+        <div class="card bg-light mt-2 ms-5" >
+            <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Customer</div>
+            <div class="card-body">
+
+                <div class="form-group ">
+                    <label for="txtCusId">Customer-Id</label>
+                    <input class="form-control" id="txtCusId" name="Customer-Id" type="text">
+                </div>
+                <div class="form-group ">
+                    <label for="txtCusName">Customer-Name</label>
+                    <input class="form-control" id="txtCusName" name="Name" type="text">
+                </div>
+                <div class="form-group ">
+                    <label for="txtTp">Tp</label>
+                    <input class="form-control" id="txtTp" name="Tp" type="text">
+                </div>
+                <div class="form-group ">
+                    <label for="txtAddress">Address</label>
+                    <input class="form-control" id="txtAddress" name="Address" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
+        <div class="card bg-light mt-2 ms-5" >
+            <div class="card-header bg-secondary text-white font-weight-bold" style="text-align: center;">Item</div>
+            <div class="card-body">
+
+                <div class="form-group ">
+                    <label for="txtItemCode">Item-Code</label>
+                    <input class="form-control" id="txtItemCode" name="Item-Code" type="text" >
+                </div>
+                <div class="form-group ">
+                    <label for="txtItemName">Item-Name</label>
+                    <input class="form-control" id="txtItemName" name="Item-Name" type="text">
+                </div>
+                <div class="form-group ">
+                    <label for="txt-qty">Quantity</label>
+                    <input class="form-control" id="txt-qty" name="Quantity" type="text" >
+                </div>
+                <div class="form-group ">
+                    <label for="txtUnitPrice">Unit-Price</label>
+                    <input class="form-control" id="txtUnitPrice" name="Unit-Price" type="text">
+                </div>
+                <div class="form-group ">
+                    <label for="txt-qty">QuantityOnHand</label>
+                    <input class="form-control" id="txt-qtyOnHand" name="QuantityOnHand" type="text" >
+                </div>
+                <div class="form-group ">
+                    <label for="txtTotalPrice">Total</label>
+                    <input class="form-control" id="txtTotalPrice" name="TotalPrice" type="text">
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
+        <div class="card bg-light mt-xl-5 ms-4" >
+            <div class="card-body">
+
+                <div class="form-group ">
+                    <label for="txtDiscount">Discount</label>
+                    <input type="text" class="form-control" id="txtDiscount" required>
+
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="txtPaymentMethod">Payment Method</label>
+                    <select class="custom-select" id="txtPaymentMethod" required>
+
+                        <option>Credit</option>
+                        <option>Debet</option>
+                        <option>Cash</option>
+                    </select>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group ">
+                        <label for="txtCash">Cash</label>
+                        <input type="text" class="form-control" id="txtCash" required>
+
+                    </div>
+                    <div class="form-group ">
+                        <label for="txtChange">Change</label>
+                        <input type="text" class="form-control" id="txtChange" required>
+
+                    </div>
+                    <div class="form-group ">
+                        <label for="txtTotal">Total</label>
+                        <input class="form-control" id="txtTotal" name="Total" type="text">
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-warning"><i class="fa fa-shopping-cart">&nbsp;</i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart">&nbsp;</i>Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+        </form>
+
+    </div>
+    <div class="container table-responsive">
+        <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
+            <thead class="table-info">
+            <tr>
+                <th scope="col">Item Code</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">C001</th>
+                <td>Rice</td>
+                <td>1kg</td>
+                <td>50/=</td>
+                <td>100/=</td>
+                <td>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<br><br>
+</body>
 </html>
