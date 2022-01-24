@@ -1,4 +1,3 @@
-
 This is my very first project made by using CSS FrameWorks.<br>
 There are some links that I use to make this SPA System.
 
@@ -38,10 +37,3 @@ github = https://github.com/NirashaMadubhashini
 08.PlaceOrder
 ![screenshot](assets/posImg/PlaceOrder.png)
 
-
-
-
-
-=======
-# SPA
->>>>>>> 260915a9f6c30135ec730c018a11a9c42980ed81
