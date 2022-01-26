@@ -1,9 +1,10 @@
-.nav-X{
+/*.nav-X{*/
+/*    font-size: 28px;*/
+/*    color: dodgerblue;*/
+/*    font-weight: bold;*/
 
-    font-size: 28px;
-    color: dodgerblue;
-    font-weight: bold;
-}
+/*}*/
+
 .bd-nav:hover{
 
     color: greenyellow;
