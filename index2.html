@@ -67,7 +67,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-8 col-xl-8">
                 <div class="new-order jumbotron ">
-                    <div class="row" style="display: flex;justify-content: center;align-items: center;position:absolute;top: 200px;">
+                    <div class="row"
+                         style="display: flex;justify-content: center;align-items: center;position:absolute;top: 200px;">
                         <h1 class="new-order-h1 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>W</span>elcome
                         </h1>
                     </div>
@@ -84,7 +85,7 @@
         <div class="row catagory-row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 pl-xl-0  pl-md-0 ">
                 <div class="card catagory ">
-                    <div class="card-body "style="border: 2px solid#0d6efd">
+                    <div class="card-body " style="border: 2px solid#0d6efd">
                         <h5 class="card-title">Customer</h5>
                         <p class="card-text">Here You can Add and Manage Customers</p>
                         <a href="Customer.html" class="btn btn-warning">Add/Manage</a>
@@ -93,7 +94,7 @@
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 pr-xl-0 pr-md-0">
                 <div class="card product">
-                    <div class="card-body "style="border: 2px solid#0d6efd">
+                    <div class="card-body " style="border: 2px solid#0d6efd">
                         <h5 class="card-title">Item</h5>
                         <p class="card-text">Here You can Add and Manage Items</p>
                         <a href="Item.html" class="btn btn-warning">Add/Manage</a>
@@ -102,7 +103,7 @@
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 pr-xl-0 pr-md-0">
                 <div class="card product">
-                    <div class="card-body "style="border: 2px solid#0d6efd">
+                    <div class="card-body " style="border: 2px solid#0d6efd">
                         <h5 class="card-title">Orders</h5>
                         <p class="card-text">Here You can Add and Manage Orders</p>
                         <a href="PlaceOrder.html" class="btn btn-success">Place New Order</a>
@@ -116,8 +117,9 @@
 <section id="customer">
     <div class="row  container-fluid mt-3" style="margin:0; padding: 0 ">
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12 ms-5">
-            <div class="card bg-light mt-2 ms-5" >
-                <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Customer</div>
+            <div class="card bg-light mt-2 ms-5">
+                <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Customer
+                </div>
                 <div class="card-body">
                     <form>
                         <div class="form-group">
@@ -141,8 +143,9 @@
                             <input type="salary" class="form-control" id="salary">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary"><a href="" class="text-decoration-none text-light">Add</a></button>
-                        <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-light">Cancel</a></button>
+                        <button type="submit" id="btnAdd" class="btn btn-primary">Add</button>
+                        <button type="submit" id="btnDelete" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-info">Update</button>
                     </form>
                 </div>
             </div>
@@ -154,7 +157,7 @@
                     <label class="form-label" for="srcCusID">Search Customer</label>
                     <input class="form-control" id="srcCusID" placeholder="Customer ID, Name" type="text">
                 </div>
-                <button class="btn btn-warning" type="submit">Search</button>
+                <button class="btn btn-warning" id="btnSearch" type="submit">Search</button>
             </div>
         </div>
     </div>
@@ -167,20 +170,15 @@
                 <th scope="col">Age</th>
                 <th scope="col">Tp</th>
                 <th scope="col">Salary</th>
-                <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="customerTable">
             <tr>
                 <th scope="row">P001</th>
                 <th>Nirasha</th>
                 <td>22</td>
                 <td>0761319259</td>
                 <td>500,000</td>
-                <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                    <button type="button" class="btn btn-info">Update</button>
-                </td>
             </tr>
             </tbody>
         </table>
@@ -190,7 +188,7 @@
 <section id="item">
     <div class="row  container-fluid mt-3" style="margin:0; padding: 0 ">
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12 ms-5">
-            <div class="card bg-light mt-2 ms-5" >
+            <div class="card bg-light mt-2 ms-5">
                 <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Item</div>
                 <div class="card-body">
                     <form>
@@ -211,8 +209,9 @@
                             <input type="quantity" class="form-control" id="quantity">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary"><a href="" class="text-decoration-none text-light">Add</a></button>
-                        <button type="submit" class="btn btn-danger"><a href="" class="text-decoration-none text-light">Cancel</a></button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-info">Update</button>
                     </form>
                 </div>
             </div>
@@ -238,7 +237,7 @@
                 <th scope="col">Item Name</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
-                <th scope="col">Action</th>
+
             </tr>
             </thead>
             <tbody>
@@ -247,10 +246,6 @@
                 <td>Rice</td>
                 <td>1kg</td>
                 <td>50/=</td>
-                <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                    <button type="button" class="btn btn-info">Update</button>
-                </td>
             </tr>
             </tbody>
         </table>
@@ -260,12 +255,13 @@
 <section id="placeOrder">
     <div class="row  container-fluid" style="margin:0; padding: 0 ">
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
-            <div class="card bg-light mt-2 ms-5" >
+            <div class="card bg-light mt-2 ms-5">
                 <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Order</div>
                 <div class="card-body">
                     <div class="form-group ">
                         <label for="txtOrderId">Order-Id</label>
-                        <input class="form-control" id="txtOrderId" name="OrderId" type="text"placeholder="Auto-Generate">
+                        <input class="form-control" id="txtOrderId" name="OrderId" type="text"
+                               placeholder="Auto-Generate">
                     </div>
                     <div class="form-group ">
                         <label for="txtDate">Date</label>
@@ -280,8 +276,9 @@
         </div>
         <br>
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
-            <div class="card bg-light mt-2 ms-5" >
-                <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Customer</div>
+            <div class="card bg-light mt-2 ms-5">
+                <div class="card-header bg-primary text-white font-weight-bold" style="text-align: center;">Customer
+                </div>
                 <div class="card-body">
                     <div class="form-group ">
                         <label for="txtCusId">Customer-Id</label>
@@ -303,12 +300,12 @@
             </div>
         </div>
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
-            <div class="card bg-light mt-2 ms-5" >
+            <div class="card bg-light mt-2 ms-5">
                 <div class="card-header bg-secondary text-white font-weight-bold" style="text-align: center;">Item</div>
                 <div class="card-body">
                     <div class="form-group ">
                         <label for="txtItemCode">Item-Code</label>
-                        <input class="form-control" id="txtItemCode" name="Item-Code" type="text" >
+                        <input class="form-control" id="txtItemCode" name="Item-Code" type="text">
                     </div>
                     <div class="form-group ">
                         <label for="txtItemName">Item-Name</label>
@@ -316,7 +313,7 @@
                     </div>
                     <div class="form-group ">
                         <label for="txt-qty">Quantity</label>
-                        <input class="form-control" id="txt-qty" name="Quantity" type="text" >
+                        <input class="form-control" id="txt-qty" name="Quantity" type="text">
                     </div>
                     <div class="form-group ">
                         <label for="txtUnitPrice">Unit-Price</label>
@@ -324,7 +321,7 @@
                     </div>
                     <div class="form-group ">
                         <label for="txt-qty">QuantityOnHand</label>
-                        <input class="form-control" id="txt-qtyOnHand" name="QuantityOnHand" type="text" >
+                        <input class="form-control" id="txt-qtyOnHand" name="QuantityOnHand" type="text">
                     </div>
                     <div class="form-group ">
                         <label for="txtTotalPrice">Total</label>
@@ -337,7 +334,7 @@
             </div>
         </div>
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
-            <div class="card bg-light mt-xl-5 ms-4" >
+            <div class="card bg-light mt-xl-5 ms-4">
                 <div class="card-body">
                     <div class="form-group ">
                         <label for="txtDiscount">Discount</label>
@@ -406,44 +403,64 @@
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <!--<script src="assets/js/script2.js"></script>-->
 <script>
-    $("#home").css("display","block");
-    $("#customer").css("display","none");
-    $("#item").css("display","none");
-    $("#placeOrder").css("display","none");
+    $("#home").css("display", "block");
+    $("#customer").css("display", "none");
+    $("#item").css("display", "none");
+    $("#placeOrder").css("display", "none");
 
 
-    $("#linkCustomer").click(function (){
-        $("#customer").css("display","block");
-        $("#home").css("display","none");
-        $("#item").css("display","none");
-        $("#placeOrder").css("display","none");
-
-    });
-
-    $("#linkItem").click(function (){
-        $("#item").css("display","block");
-        $("#customer").css("display","none");
-        $("#home").css("display","none");
-        $("#placeOrder").css("display","none");
+    $("#linkCustomer").click(function () {
+        $("#customer").css("display", "block");
+        $("#home").css("display", "none");
+        $("#item").css("display", "none");
+        $("#placeOrder").css("display", "none");
 
     });
 
-    $("#linkOrder").click(function (){
-        $("#placeOrder").css("display","block");
-        $("#item").css("display","none");
-        $("#customer").css("display","none");
-        $("#home").css("display","none");
+    $("#linkItem").click(function () {
+        $("#item").css("display", "block");
+        $("#customer").css("display", "none");
+        $("#home").css("display", "none");
+        $("#placeOrder").css("display", "none");
+
+    });
+
+    $("#linkOrder").click(function () {
+        $("#placeOrder").css("display", "block");
+        $("#item").css("display", "none");
+        $("#customer").css("display", "none");
+        $("#home").css("display", "none");
 
     });
 
 
-    $("#linkHome").click(function (){
-        $("#home").css("display","block");
-        $("#item").css("display","none");
-        $("#customer").css("display","none");
-        $("#placeOrder").css("display","none");
+    $("#linkHome").click(function () {
+        $("#home").css("display", "block");
+        $("#item").css("display", "none");
+        $("#customer").css("display", "none");
+        $("#placeOrder").css("display", "none");
     });
 
+    $("#btnAdd").click(function () {
+        let customerID = $("#customerId").val();
+        let customerName = $("#customerName").val();
+        let customerAddress = $("#age").val();
+        let customerTP = $("#tp").val();
+        let customerSalary = $("#salary").val();
+
+        let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTP}</td>
+                  <td>${customerSalary}</td><td>${customerSalary}</td><td>${customerSalary}</td></tr>`;
+
+
+        $("#customerTable").append(row);
+
+
+        $("#customerTable>tr").click(function () {
+            console.log(this);
+        });
+
+
+    });
 
 </script>
 </body>
