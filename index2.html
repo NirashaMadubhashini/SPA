@@ -88,7 +88,7 @@
                     <div class="card-body " style="border: 2px solid#0d6efd">
                         <h5 class="card-title">Customer</h5>
                         <p class="card-text">Here You can Add and Manage Customers</p>
-                        <a href="Customer.html" class="btn btn-warning">Add/Manage</a>
+                        <a id="linkCustomerPage" href="#" class="btn btn-warning">Add/Manage</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                     <div class="card-body " style="border: 2px solid#0d6efd">
                         <h5 class="card-title">Item</h5>
                         <p class="card-text">Here You can Add and Manage Items</p>
-                        <a href="Item.html" class="btn btn-warning">Add/Manage</a>
+                        <a id="linkItemPage" href="#" class="btn btn-warning">Add/Manage</a>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     <div class="card-body " style="border: 2px solid#0d6efd">
                         <h5 class="card-title">Orders</h5>
                         <p class="card-text">Here You can Add and Manage Orders</p>
-                        <a href="PlaceOrder.html" class="btn btn-success">Place New Order</a>
+                        <a id="linkOrderPage" href="#" class="btn btn-success">Place New Order</a>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                             <input type="salary" class="form-control" id="salary">
                         </div>
                         <br>
-                        <button type="submit" id="btnAdd" class="btn btn-primary">Add</button>
+                        <button type="submit" id="btnAddCustomer" class="btn btn-primary">Add</button>
                         <button type="submit" id="btnDelete" class="btn btn-danger">Delete</button>
                         <button type="button" class="btn btn-info">Update</button>
                     </form>
@@ -173,13 +173,7 @@
             </tr>
             </thead>
             <tbody id="customerTable">
-            <tr>
-                <th scope="row">P001</th>
-                <th>Nirasha</th>
-                <td>22</td>
-                <td>0761319259</td>
-                <td>500,000</td>
-            </tr>
+
             </tbody>
         </table>
     </div>
@@ -209,7 +203,7 @@
                             <input type="quantity" class="form-control" id="quantity">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" id="btnAddItem" class="btn btn-primary">Add</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
                         <button type="button" class="btn btn-info">Update</button>
                     </form>
@@ -240,13 +234,8 @@
 
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">C001</th>
-                <td>Rice</td>
-                <td>1kg</td>
-                <td>50/=</td>
-            </tr>
+            <tbody id="itemTable">
+
             </tbody>
         </table>
     </div>
@@ -401,7 +390,6 @@
 </section>
 
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
-<!--<script src="assets/js/script2.js"></script>-->
 <script>
     $("#home").css("display", "block");
     $("#customer").css("display", "none");
@@ -416,6 +404,13 @@
         $("#placeOrder").css("display", "none");
 
     });
+    $("#linkCustomerPage").click(function () {
+        $("#customer").css("display", "block");
+        $("#home").css("display", "none");
+        $("#item").css("display", "none");
+        $("#placeOrder").css("display", "none");
+
+    });
 
     $("#linkItem").click(function () {
         $("#item").css("display", "block");
@@ -424,8 +419,22 @@
         $("#placeOrder").css("display", "none");
 
     });
+    $("#linkItemPage").click(function () {
+        $("#item").css("display", "block");
+        $("#customer").css("display", "none");
+        $("#home").css("display", "none");
+        $("#placeOrder").css("display", "none");
+
+    });
 
     $("#linkOrder").click(function () {
+        $("#placeOrder").css("display", "block");
+        $("#item").css("display", "none");
+        $("#customer").css("display", "none");
+        $("#home").css("display", "none");
+
+    });
+    $("#linkOrderPage").click(function () {
         $("#placeOrder").css("display", "block");
         $("#item").css("display", "none");
         $("#customer").css("display", "none");
@@ -441,25 +450,65 @@
         $("#placeOrder").css("display", "none");
     });
 
-    $("#btnAdd").click(function () {
+    $("#btnAddCustomer").click(function () {
         let customerID = $("#customerId").val();
         let customerName = $("#customerName").val();
-        let customerAddress = $("#age").val();
+        let customerAge = $("#age").val();
         let customerTP = $("#tp").val();
         let customerSalary = $("#salary").val();
 
-        let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTP}</td>
-                  <td>${customerSalary}</td><td>${customerSalary}</td><td>${customerSalary}</td></tr>`;
+        let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAge}</td><td>${customerTP}</td>
+                  <td>${customerSalary}</td></tr>`;
 
 
         $("#customerTable").append(row);
 
 
         $("#customerTable>tr").click(function () {
-            console.log(this);
+            let cusID = $(this).children(":eq(0)").text();
+            let cusName = $(this).children(":eq(1)").text();
+            let cusAge = $(this).children(":eq(2)").text();
+            let cusTP = $(this).children(":eq(3)").text();
+            let cusSalary = $(this).children(":eq(4)").text();
+
+            console.log(cusID, cusName, cusAge, cusTP,cusSalary);
+
+            $("#customerId").val(cusID);
+            $("#customerName").val(cusName);
+            $("#age").val(cusAge);
+            $("#tp").val(cusTP);
+            $("#salary").val(cusSalary);
+
         });
+    });
+
+    $("#btnAddItem").click(function () {
+        let itemCode = $("#itemCode").val();
+        let itemName = $("#itemName").val();
+        let quantity = $("#quantity").val();
+        let itemPrice = $("#itemPrice").val();
 
 
+        let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${quantity}</td><td>${itemPrice}</td></tr>`;
+
+
+        $("#itemTable").append(row);
+
+
+        $("#itemTable>tr").click(function () {
+            let itemCode = $(this).children(":eq(0)").text();
+            let itemName = $(this).children(":eq(1)").text();
+            let itemQty = $(this).children(":eq(2)").text();
+            let itemPrice = $(this).children(":eq(3)").text();
+
+            console.log(itemCode, itemName, itemQty, itemPrice);
+
+            $("#itemCode").val(itemCode);
+            $("#itemName").val(itemName);
+            $("#quantity").val(itemQty);
+            $("#itemPrice").val(itemPrice);
+
+        });
     });
 
 </script>
