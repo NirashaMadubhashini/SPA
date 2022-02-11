@@ -516,6 +516,19 @@
         }
     });
 
+    var regExCusAddress = /^[A-z ]{3,30}([0-9]{1,2})?$/;
+
+    $("#address").keyup(function () {
+        let input = $("#address").val();
+        if (regExCusAddress.test(input)) {
+            $("#address").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#address").css('border', '2px solid red');
+            $("#error").text("Wrong format : Galle");
+        }
+    });
+
 
 
 
