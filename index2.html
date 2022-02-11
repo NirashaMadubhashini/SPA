@@ -607,6 +607,19 @@
         }
     });
 
+    var regExItemName = /^[A-z ]{2,}$/;
+
+    $("#itemName").keyup(function () {
+        let input = $("#itemName").val();
+        if (regExItemName.test(input)) {
+            $("#itemName").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#itemName").css('border', '2px solid red');
+            $("#error").text("Wrong format :Rice");
+        }
+    });
+
 </script>
 </body>
 </html>
