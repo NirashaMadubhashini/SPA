@@ -633,6 +633,19 @@
         }
     });
 
+    var regExPrice = /^[0-9]{2,}$/;
+
+    $("#itemPrice").keyup(function () {
+        let input = $("#itemPrice").val();
+        if (regExPrice.test(input)) {
+            $("#itemPrice").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#itemPrice").css('border', '2px solid red');
+            $("#error").text("Wrong format :100");
+        }
+    });
+
 </script>
 </body>
 </html>
