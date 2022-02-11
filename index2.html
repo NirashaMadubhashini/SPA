@@ -450,12 +450,17 @@
         $("#placeOrder").css("display", "none");
     });
 
+
     $("#btnAddCustomer").click(function () {
+
+        $("#customerTable>tr").off("click");
+
         let customerID = $("#customerId").val();
         let customerName = $("#customerName").val();
         let customerAge = $("#age").val();
         let customerTP = $("#tp").val();
         let customerSalary = $("#salary").val();
+
 
         let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAge}</td><td>${customerTP}</td>
                   <td>${customerSalary}</td></tr>`;
@@ -478,11 +483,30 @@
             $("#age").val(cusAge);
             $("#tp").val(cusTP);
             $("#salary").val(cusSalary);
+        });
 
+        $("#customerTable>tr").dblclick(function () {
+            $(this).remove();
         });
     });
 
+    var regExCusID = /^(C-)[0-9]{3,4}$/;
+
+    $("#customerId").keyup(function () {
+        let input = $("#customerId").val();
+        if (regExCusID.test(input)) {
+            $("#customerId").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#customerId").css('border', '2px solid red');
+            $("#error").text("Wrong format : C-001");
+        }
+    });
+
     $("#btnAddItem").click(function () {
+
+        $("#itemTable>tr").off("click");
+
         let itemCode = $("#itemCode").val();
         let itemName = $("#itemName").val();
         let quantity = $("#quantity").val();
@@ -509,6 +533,23 @@
             $("#itemPrice").val(itemPrice);
 
         });
+
+        $("#itemTable>tr").dblclick(function () {
+            $(this).remove();
+        });
+    });
+
+    var regExItemCode = /^(I-)[0-9]{3,4}$/;
+
+    $("#itemCode").keyup(function () {
+        let input = $("#itemCode").val();
+        if (regExItemCode.test(input)) {
+            $("#itemCode").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#itemCode").css('border', '2px solid red');
+            $("#error").text("Wrong format : I-001");
+        }
     });
 
 </script>
