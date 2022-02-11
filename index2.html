@@ -620,6 +620,19 @@
         }
     });
 
+    var regExQty = /^[0-9 A-z]{3,}$/;
+
+    $("#quantity").keyup(function () {
+        let input = $("#quantity").val();
+        if (regExQty.test(input)) {
+            $("#quantity").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#quantity").css('border', '2px solid red');
+            $("#error").text("Wrong format :500g");
+        }
+    });
+
 </script>
 </body>
 </html>
