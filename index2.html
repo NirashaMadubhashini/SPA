@@ -131,8 +131,8 @@
                             <input type="customerName" class="form-control" id="customerName">
                         </div>
                         <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="age" class="form-control" id="age">
+                            <label for="address">Address</label>
+                            <input type="address" class="form-control" id="address">
                         </div>
                         <div class="form-group">
                             <label for="tp">Tp</label>
@@ -167,7 +167,7 @@
             <tr>
                 <th scope="col">Customer NIC</th>
                 <th scope="col">Customer Name</th>
-                <th scope="col">Age</th>
+                <th scope="col">Address</th>
                 <th scope="col">Tp</th>
                 <th scope="col">Salary</th>
             </tr>
@@ -457,12 +457,12 @@
 
         let customerID = $("#customerId").val();
         let customerName = $("#customerName").val();
-        let customerAge = $("#age").val();
+        let customerAddress = $("#address").val();
         let customerTP = $("#tp").val();
         let customerSalary = $("#salary").val();
 
 
-        let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAge}</td><td>${customerTP}</td>
+        let row = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTP}</td>
                   <td>${customerSalary}</td></tr>`;
 
 
@@ -472,15 +472,15 @@
         $("#customerTable>tr").click(function () {
             let cusID = $(this).children(":eq(0)").text();
             let cusName = $(this).children(":eq(1)").text();
-            let cusAge = $(this).children(":eq(2)").text();
+            let cusAddress = $(this).children(":eq(2)").text();
             let cusTP = $(this).children(":eq(3)").text();
             let cusSalary = $(this).children(":eq(4)").text();
 
-            console.log(cusID, cusName, cusAge, cusTP,cusSalary);
+            console.log(cusID, cusName, cusAddress, cusTP,cusSalary);
 
             $("#customerId").val(cusID);
             $("#customerName").val(cusName);
-            $("#age").val(cusAge);
+            $("#address").val(cusAddress);
             $("#tp").val(cusTP);
             $("#salary").val(cusSalary);
         });
@@ -502,6 +502,22 @@
             $("#error").text("Wrong format : C-001");
         }
     });
+
+    var regExCusName = /^[A-z ]{2,}$/;
+
+    $("#customerName").keyup(function () {
+        let input = $("#customerName").val();
+        if (regExCusName.test(input)) {
+            $("#customerName").css('border', '2px solid green');
+            $("#error").text("");
+        } else {
+            $("#customerName").css('border', '2px solid red');
+            $("#error").text("Wrong format : Nirasha");
+        }
+    });
+
+
+
 
     $("#btnAddItem").click(function () {
 
