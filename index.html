@@ -161,7 +161,7 @@
     </div>
     <div class="container table-responsive">
         <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover " id="tblCustomer">
-            <thead class="table-info">
+            <thead class="table-primary">
             <tr>
                 <th scope="col">Customer Id</th>
                 <th scope="col">Customer Name</th>
@@ -225,7 +225,7 @@
     <br>
     <div class="container table-responsive">
         <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
-            <thead class="table-info">
+            <thead class="table-primary">
             <tr>
                 <th scope="col">Item Code</th>
                 <th scope="col">Item Name</th>
@@ -301,10 +301,6 @@
                         <input class="form-control" id="txtItemName" name="Item-Name" type="text">
                     </div>
                     <div class="form-group ">
-                        <label for="txt-qty">Quantity</label>
-                        <input class="form-control" id="txt-qty" name="Quantity" type="text">
-                    </div>
-                    <div class="form-group ">
                         <label for="txtUnitPrice">Unit-Price</label>
                         <input class="form-control" id="txtUnitPrice" name="Unit-Price" type="text">
                     </div>
@@ -313,47 +309,56 @@
                         <input class="form-control" id="txt-qtyOnHand" name="QuantityOnHand" type="text">
                     </div>
                     <div class="form-group ">
-                        <label for="txtTotalPrice">Total</label>
-                        <input class="form-control" id="txtTotalPrice" name="TotalPrice" type="text">
+                        <label for="txt-qty">Quantity</label>
+                        <input class="form-control" id="txt-qty" name="Quantity" type="text">
                     </div>
                     <br>
-                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart
-                    </button>
+                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
-            <div class="card bg-light mt-xl-5 ms-4">
+            <div class="card bg-light mt-xl-3 ms-4">
                 <div class="card-body">
                     <div class="form-group ">
-                        <label for="txtDiscount">Discount</label>
-                        <input type="text" class="form-control" id="txtDiscount" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="txtPaymentMethod">Payment Method</label>
-                        <select class="custom-select" id="txtPaymentMethod" required>
-                            <option>Credit</option>
-                            <option>Debet</option>
-                            <option>Cash</option>
-                        </select>
+                        <label>Discount</label>
+                        <input class="form-control" id="txtDiscount" min="0" type="number">
                     </div>
                     <div class="form-row">
                         <div class="form-group ">
-                            <label for="txtCash">Cash</label>
-                            <input type="text" class="form-control" id="txtCash" required>
+                            <label>Cash</label>
+                            <input class="form-control" id="txtCash" min="0" type="number">
+                            <span class="control-error"
+                                  id="cash-empty-error"></span>
                         </div>
                         <div class="form-group ">
                             <label for="txtChange">Change</label>
                             <input type="text" class="form-control" id="txtChange" required>
                         </div>
+                        <br>
                         <div class="form-group ">
-                            <label for="txtTotal">Total</label>
-                            <input class="form-control" id="txtTotal" name="Total" type="text">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="text-primary" id="total-text">Total : </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-12">
+                                <span id="total"class="text-primary fs-3 fw-bolder">00.0</span> Rs/=
+
+                                <div class="col-12">
+                                    <span id="total-text1" class="text-danger">SubTotal : </span>
+                                </div>
+                                <div class="col-12">
+                                    <span id="subtotal"class="text-danger fs-3 fw-bolder">00.0</span> Rs/=
+                                </div>
+                            </div>
                         </div>
                         <br>
-                        <button type="button" class="btn btn-warning"><i class="fa fa-shopping-cart">&nbsp;</i>Cancel
-                        </button>
                         <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart">&nbsp;</i>Payment
                         </button>
                     </div>
@@ -363,7 +368,7 @@
         </div>
         <div class="container table-responsive">
             <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
-                <thead class="table-info">
+                <thead class="table-dark">
                 <tr>
                     <th scope="col">Item Code</th>
                     <th scope="col">Item Name</th>
