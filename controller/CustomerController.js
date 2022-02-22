@@ -45,6 +45,8 @@ function loadAllCustomers() {
 }
 
 function saveCustomer() {
+    $("#customerTable").append(row);
+
     let customerID = $("#customerId").val();
     let customerName = $("#customerName").val();
     let customerAddress = $("#customerAddress").val();

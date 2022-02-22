@@ -68,26 +68,40 @@ function searchItem(itemCode) {
     }
 }
 
-// $(document).ready(function () {
-//     $('#btnDeleteItem').click(function () {
-//         if (confirm("Want to clear?")) {
-//             $('#form input[type="text"]').val('');
-//             $('#form #itemCode').val('');
-//             $('#form #itemName').val('');
-//             $('#form #itemPrice').val('');
-//             $('#form #itemQuantity').val('');
-//         }
-//
-//     });
-// });
+$("#btnUpdateItem").click(function () {
+    let itemCode2 = $("#itemCode").val();
+    let itemName2 = $("#itemName").val();
+    let itemPrice2 = $("#itemPrice").val();
+    let itemQuantity2 = $("#itemQuantity").val();
 
-function deleteItem(){
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#txtItemCode").val()==itemDB[i].itemCode){
+            console.log("Enter");
+            itemDB[i].itemCode= itemCode2;
+            itemDB[i].itemName=itemName2;
+            itemDB[i].price=itemPrice2;
+            itemDB[i].quantity=itemQuantity2;
+        }
+    }
+    loadAllItem();
+    clearAllItem();
+    loadItemDataTextField();
+});
 
-}
+ $("#itemTable").on('click', '#btnDeleteItem', function () {
+    var index = 0;
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#itemCode").val() == itemDB[i].itemCode) {
+            index = i;
+        }
+    }
+    itemDB.splice(index, 1);
 
-function updateCustomer(){
+    clearAllItem();
 
-}
+    $(this).closest('tr').remove();
+
+});
 
 const itemCodeRegEx = /^(I00-)[0-9]{3}$/;
 const itemNameRegEx = /^[A-z ]{2,20}$/;
