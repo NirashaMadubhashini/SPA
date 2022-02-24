@@ -45,8 +45,6 @@ function loadAllCustomers() {
 }
 
 function saveCustomer() {
-    $("#customerTable").append(row);
-
     let customerID = $("#customerId").val();
     let customerName = $("#customerName").val();
     let customerAddress = $("#customerAddress").val();
@@ -69,19 +67,9 @@ function searchCustomer(id) {
         }
     }
 }
-//
-// $(document).ready(function () {
-//     $('#btnDelete').click(function () {
-//         if (confirm("Want to clear?")) {
-//             $('#form1 input[type="text"]').val('');
-//             $('#form1 #customerId').val('');
-//             $('#form1 #customerName').val('');
-//             $('#form1 #customerAddress').val('');
-//             $('#form1 #customerSalary').val('');
-//         }
-//
-//     });
-// });
+
+
+
 
 function deleteCustomer() {
 }
@@ -101,7 +89,6 @@ $('#customerId,#customerName,#customerAddress,#customerSalary').on('keydown', fu
         eventOb.preventDefault();
     }
     formValidCus();
-    console.log("W")
 });
 
 $('#customerId,#customerName,#customerAddress,#customerSalary').on('blur', function () {
