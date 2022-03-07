@@ -7,6 +7,9 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/Dashbord.css">
     <link rel="stylesheet" href="assets/style/Placeorder.css">
+    <link rel="stylesheet" href="assets/style/Customer.css">
+    <link rel="stylesheet" href="assets/style/Item.css">
+    <link rel="stylesheet" href="assets/style/Order.css">
 </head>
 <body>
 <div>
@@ -148,7 +151,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4 ms-5 position-absolute top-50 start-50 translate-middle">
+        <div class="col-12 col-md-4 ms-5 position-absolute top-200 start-50 translate-middle">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="shadow-sm pt-3 pb-5 px-3 py-3 mt-2 border-3 border-dark ">
                 <h1 class="h1 mb-3">Customer Manager</h1>
                 <div class="mb-3">
@@ -222,7 +226,6 @@
             </div>
         </div>
     </div>
-    <br>
     <div class="container table-responsive">
         <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
             <thead class="table-primary">
@@ -270,16 +273,12 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Customer</label>
+                        <label>Customer-Id</label>
                         <select class="form-control" id="selectCusID">
 
                         </select>
                         <span class="control-error"
                               id="cus-empty-error"></span>
-                    </div>
-                    <div class="form-group ">
-                        <label for="txtCusId">Customer-Id</label>
-                        <input class="form-control" id="txtCusId" name="Customer-Id" type="text">
                     </div>
                     <div class="form-group ">
                         <label for="txtCusName">Customer-Name</label>
@@ -301,14 +300,10 @@
                 <div class="card-header bg-secondary text-white font-weight-bold" style="text-align: center;">Item</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Item :</label>
+                        <label>Item-Code</label>
                         <select class="form-control" id="selectItemCode"></select>
                         <span class="control-error"
                               id="item-empty-error"></span>
-                    </div>
-                    <div class="form-group ">
-                        <label for="txtItemCode">Item-Code</label>
-                        <input class="form-control" id="txtItemCode" name="Item-Code" type="text">
                     </div>
                     <div class="form-group ">
                         <label for="txtItemName">Item-Name</label>
@@ -385,22 +380,16 @@
             <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
                 <thead class="table-dark">
                 <tr>
-                    <th scope="col">Order-Id</th>
-                    <th scope="col">Item Code</th>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Total</th>
+                    <th scope="col">OId</th>
+                    <th scope="col">Item-Code</th>
+                    <th scope="col">Item-Name</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Per-Rs.</th>
+                    <th scope="col">Tot</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th>O00-001</th>
-                    <th>I00-001</th>
-                    <td>Rice</td>
-                    <td>1kg</td>
-                    <td>50/=</td>
-                    <td>100/=</td>
                 </tr>
                 </tbody>
             </table>
