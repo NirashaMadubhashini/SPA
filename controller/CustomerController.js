@@ -5,17 +5,18 @@ $("#btnAddCustomer").click(function () {
 
     $("#customerTable>tr").click(function () {
         console.log($(this));
-        let id1 = $(this).children(":eq(0)").text();
-        let name1 = $(this).children(":eq(1)").text();
-        let address1 = $(this).children(":eq(2)").text();
-        let salary1 = $(this).children(":eq(3)").text();
+        let customerId1 = $(this).children(":eq(0)").text();
+        let customerName1 = $(this).children(":eq(1)").text();
+        let customerAddress1 = $(this).children(":eq(2)").text();
+        let customerSalary1 = $(this).children(":eq(3)").text();
 
-        console.log(id1, name1, address1, salary1);
+        console.log(customerId1,customerName1, customerAddress1, customerSalary1);
 
-        $("#customerId").val(id1);
-        $("#customerName").val(name1);
-        $("#customerAddress").val(address1);
-        $("#customerSalary").val(salary1);
+        $("#customerId").val(customerId1);
+        $("#customerName").val(customerName1);
+        $("#customerAddress").val(customerAddress1);
+        $("#customerSalary").val(customerSalary1);
+
     });
 
 });
@@ -45,19 +46,19 @@ function loadAllCustomers() {
 }
 
 function saveCustomer() {
-    let customerID = $("#customerId").val();
+    let customerId = $("#customerId").val();
     let customerName = $("#customerName").val();
     let customerAddress = $("#customerAddress").val();
     let customerSalary = $("#customerSalary").val();
 
     var customerObject = {
-        id: customerID,
+        id: customerId,
         name: customerName,
         address: customerAddress,
         salary: customerSalary
     };
-
     customerDB.push(customerObject);
+
 }
 
 function searchCustomer(id) {
@@ -69,14 +70,37 @@ function searchCustomer(id) {
 }
 
 
+$("#btnUpdateCustomer").click(function () {
+    let customerId = $("#customerId").val();
+    let customerName = $("#customerName").val();
+    let customerAddress= $("#customerAddress").val();
+    let customerSalary = $("#customerSalary").val();
+
+    for (var i = 0; i < customerDB.length; i++) {
+        if ($("#customerId").val()==customerDB[i].id){
+            console.log("Enter");
+            customerDB[i].id= customerId;
+            customerDB[i].name=customerName;
+            customerDB[i].address=customerAddress;
+            customerDB[i].salary=customerSalary;
+        }
+    }
+    loadAllCustomers()
+    clearAll()
+});
 
 
-function deleteCustomer() {
-}
 
-function updateCustomer() {
 
-}
+
+
+
+
+
+
+
+
+
 
 const cusIDRegEx = /^(C00-)[0-9]{3}$/;
 const cusNameRegEx = /^[A-z ]{5,20}$/;
@@ -103,9 +127,9 @@ $("#customerId").on('keyup', function (eventOb) {
     }
 
     if (eventOb.key == "Control") {
-        var typedCustomerID = $("#customerId").val();
-        var srcCustomer = searchCustomerFromID(typedCustomerID);
-        $("#customerId").val(srcCustomer.getCustomerID());
+        var typedCustomerId = $("#customerId").val();
+        var srcCustomer = searchCustomerFromID(typedCustomerId);
+        $("#customerId").val(srcCustomer.getCustomerId());
         $("#customerName").val(srcCustomer.getCustomerName());
         $("#customerAddress").val(srcCustomer.getCustomerAddress());
         $("#customerSalary").val(srcCustomer.getCustomerSalary());
@@ -232,35 +256,3 @@ $('#btnAddCustomer').click(function () {
     checkIfValidCus();
 });
 
-
-
-
-//bind the events to the table rows after the row was added
-// $("#customerTable>tr").click(function () {
-//     // this//dom object
-//     // $(this);//jQuery object
-//
-//     // $(this)//tr
-//     // $(this).children(); //return all td inside selected row
-//     let cusID = $(this).children(":eq(0)").text(); // select first td and get text
-//     let cusName = $(this).children(":eq(1)").text();
-//     let cusAddress = $(this).children(":eq(2)").text();
-//     let cusTP = $(this).children(":eq(3)").text();
-//
-//     console.log(cusID, cusName, cusAddress, cusTP);
-//
-//     // set values for the input fields
-//     $("#txtCusID").val(cusID);
-//     $("#txtCusName").val(cusName);
-//     $("#txtCusAddress").val(cusAddress);
-//     $("#txtCusTP").val(cusTP);
-//
-// });
-
-
-// /*Remove selected row from the double click*/
-// $("#customerTable>tr").dblclick(function () {
-//     $(this).remove();
-// });
-//
-// });
