@@ -3,6 +3,7 @@ $("#btnAddItem").click(function () {
     clearAllItems();
     loadAllItems();
 
+
     $("#itemTable>tr").click(function () {
         console.log($(this));
         let itemCode1 = $(this).children(":eq(0)").text();
@@ -42,6 +43,7 @@ function loadAllItems() {
     }
 }
 
+
 function saveItem() {
     let itemCode = $("#itemCode").val();
     let itemName = $("#itemName").val();
@@ -68,40 +70,25 @@ function searchItem(itemCode) {
     }
 }
 
-// $("#btnUpdateItem").click(function () {
-//     let itemCode2 = $("#itemCode").val();
-//     let itemName2 = $("#itemName").val();
-//     let itemPrice2 = $("#itemPrice").val();
-//     let itemQuantity2 = $("#itemQuantity").val();
-//
-//     for (var i = 0; i < itemDB.length; i++) {
-//         if ($("#txtItemCode").val()==itemDB[i].itemCode){
-//             console.log("Enter");
-//             itemDB[i].itemCode= itemCode2;
-//             itemDB[i].itemName=itemName2;
-//             itemDB[i].price=itemPrice2;
-//             itemDB[i].quantity=itemQuantity2;
-//         }
-//     }
-//     loadAllItem();
-//     clearAllItem();
-//     loadItemDataTextField();
-// });
-//
-//  $("#itemTable").on('click', '#btnDeleteItem', function () {
-//     var index = 0;
-//     for (var i = 0; i < itemDB.length; i++) {
-//         if ($("#itemCode").val() == itemDB[i].itemCode)
-//             index = i;
-//         }
-//     }
-//     itemDB.splice(index, 1);
-//
-//     clearAllItem();
-//
-//     $(this).closest('tr').remove();
-//
-// });
+$("#btnUpdateItem").click(function () {
+    let itemCode = $("#itemCode").val();
+    let itemName = $("#itemName").val();
+    let itemPrice = $("#itemPrice").val();
+    let itemQuantity= $("#itemQuantity").val();
+
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#itemCode").val()==itemDB[i].itemCode){
+            console.log("Enter");
+            itemDB[i].itemCode= itemCode;
+            itemDB[i].itemName=itemName;
+            itemDB[i].price=itemPrice;
+            itemDB[i].quantity=itemQuantity;
+        }
+    }
+    loadAllItems();
+    clearAllItems();
+});
+
 
 const itemCodeRegEx = /^(I00-)[0-9]{3}$/;
 const itemNameRegEx = /^[A-z ]{2,20}$/;
