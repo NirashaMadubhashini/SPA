@@ -231,3 +231,36 @@ function setButton() {
 $('#btnAddCustomer').click(function () {
     checkIfValidCus();
 });
+
+
+
+
+//bind the events to the table rows after the row was added
+// $("#customerTable>tr").click(function () {
+//     // this//dom object
+//     // $(this);//jQuery object
+//
+//     // $(this)//tr
+//     // $(this).children(); //return all td inside selected row
+//     let cusID = $(this).children(":eq(0)").text(); // select first td and get text
+//     let cusName = $(this).children(":eq(1)").text();
+//     let cusAddress = $(this).children(":eq(2)").text();
+//     let cusTP = $(this).children(":eq(3)").text();
+//
+//     console.log(cusID, cusName, cusAddress, cusTP);
+//
+//     // set values for the input fields
+//     $("#txtCusID").val(cusID);
+//     $("#txtCusName").val(cusName);
+//     $("#txtCusAddress").val(cusAddress);
+//     $("#txtCusTP").val(cusTP);
+//
+// });
+
+
+// /*Remove selected row from the double click*/
+// $("#customerTable>tr").dblclick(function () {
+//     $(this).remove();
+// });
+//
+// });
