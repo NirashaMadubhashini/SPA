@@ -125,28 +125,28 @@
                     <form>
                         <div class="form-group">
                             <label for="customerId">Customer Id</label>
-                            <input type="customerId" class="form-control" id="customerId">
+                            <input type="customerId"  class="form-control" id="customerId">
                             <p><small id="lblcusid" class="text-danger pl-1"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customerName">Customer Name</label>
-                            <input type="customerName" class="form-control" id="customerName">
+                            <input type="customerName"  class="form-control" id="customerName">
                             <p><small id="lblcusname" class="text-danger pl-1"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customerAddress">Address</label>
-                            <input type="customerAddress" class="form-control" id="customerAddress">
+                            <input type="customerAddress"  class="form-control" id="customerAddress">
                             <p><small id="lblcusaddress" class="text-danger pl-1"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customerSalary">Salary</label>
-                            <input type="customerSalary" class="form-control" id="customerSalary">
+                            <input type="customerSalary"  class="form-control" id="customerSalary">
                             <p><small id="lblcussalary" class="text-danger pl-1"></small></p>
                         </div>
                         <br>
                         <button type="submit" id="btnAddCustomer" class="btn btn-primary">Add</button>
-                        <button type="submit" id="btnUpdateCustomer" class="btn btn-info"> Update</button>
-                        <button type="submit" id="btnDelete" class="btn btn-danger">Delete</button>
+                        <button type="button" id="btnUpdateCustomer" class="btn btn-info"> Update</button>
+                        <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
             </div>
@@ -377,7 +377,7 @@
             </form>
         </div>
         <div class="container table-responsive">
-            <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover">
+            <table class="table table-bordered mx-auto mt-5 ml-sm-0 table-hover" id="tblOrder">
                 <thead class="table-dark">
                 <tr>
                     <th scope="col">OId</th>
@@ -388,7 +388,7 @@
                     <th scope="col">Tot</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="orderTable">
                 <tr>
                 </tr>
                 </tbody>
