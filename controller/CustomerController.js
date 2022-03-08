@@ -1,25 +1,9 @@
 $("#btnAddCustomer").click(function () {
-    saveCustomer();
-    clearAll();
-    loadAllCustomers();
-
-    $("#customerTable>tr").click(function () {
-        console.log($(this));
-        let customerId1 = $(this).children(":eq(0)").text();
-        let customerName1 = $(this).children(":eq(1)").text();
-        let customerAddress1 = $(this).children(":eq(2)").text();
-        let customerSalary1 = $(this).children(":eq(3)").text();
-
-        console.log(customerId1,customerName1, customerAddress1, customerSalary1);
-
-        $("#customerId").val(customerId1);
-        $("#customerName").val(customerName1);
-        $("#customerAddress").val(customerAddress1);
-        $("#customerSalary").val(customerSalary1);
-
-    });
-
+        saveCustomer();
+        clearAll();
+        loadAllCustomers();
 });
+
 
 
 $("#btnSearch").click(function () {
@@ -38,26 +22,55 @@ $("#btnSearch").click(function () {
 });
 
 function loadAllCustomers() {
+
     $("#customerTable").empty();
     for (var i of customerDB) {
         let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.salary}</td></tr>`;
         $("#customerTable").append(row);
     }
+
+
+    $("#customerTable>tr").click(function () {
+        console.log($(this));
+
+        let customerId1 = $(this).children(":eq(0)").text();
+        let customerName1 = $(this).children(":eq(1)").text();
+        let customerAddress1 = $(this).children(":eq(2)").text();
+        let customerSalary1 = $(this).children(":eq(3)").text();
+
+        console.log(customerId1, customerName1, customerAddress1, customerSalary1);
+
+        $("#customerId").val(customerId1);
+        $("#customerName").val(customerName1);
+        $("#customerAddress").val(customerAddress1);
+        $("#customerSalary").val(customerSalary1);
+
+    });
+
 }
 
 function saveCustomer() {
-    let customerId = $("#customerId").val();
-    let customerName = $("#customerName").val();
-    let customerAddress = $("#customerAddress").val();
-    let customerSalary = $("#customerSalary").val();
 
-    var customerObject = {
-        id: customerId,
-        name: customerName,
-        address: customerAddress,
-        salary: customerSalary
-    };
-    customerDB.push(customerObject);
+    let dC = duplicateCheck();
+
+    if (dC){
+        alert("This Customer Already Added ,Try Again")
+    }else {
+        alert("Do you want to add this Customer")
+
+        let customerId = $("#customerId").val();
+        let customerName = $("#customerName").val();
+        let customerAddress = $("#customerAddress").val();
+        let customerSalary = $("#customerSalary").val();
+
+        var customerObject = {
+            id: customerId,
+            name: customerName,
+            address: customerAddress,
+            salary: customerSalary
+        };
+        customerDB.push(customerObject);
+    }
 
 }
 
@@ -69,20 +82,33 @@ function searchCustomer(id) {
     }
 }
 
+function duplicateCheck(){
+    for (var i = 0; i < customerDB.length; i++) {
+        if ($("#customerId").val() === customerDB[i].id) {
+
+            return true;
+        }
+    }
+    return  false
+}
+
 
 $("#btnUpdateCustomer").click(function () {
     let customerId = $("#customerId").val();
     let customerName = $("#customerName").val();
-    let customerAddress= $("#customerAddress").val();
+    let customerAddress = $("#customerAddress").val();
     let customerSalary = $("#customerSalary").val();
 
     for (var i = 0; i < customerDB.length; i++) {
-        if ($("#customerId").val()==customerDB[i].id){
-            console.log("Enter");
-            customerDB[i].id= customerId;
-            customerDB[i].name=customerName;
-            customerDB[i].address=customerAddress;
-            customerDB[i].salary=customerSalary;
+        if ($("#customerId").val() === customerDB[i].id) {
+
+            customerDB[i].id = customerId;
+            customerDB[i].name = customerName;
+            customerDB[i].address = customerAddress;
+            customerDB[i].salary = customerSalary;
+
+            alert("Successfully Updated")
+
         }
     }
     loadAllCustomers()
@@ -109,7 +135,7 @@ const cusSalaryRegEx = /^[0-9]{1,}[.]?[0-9]{1,2}$/;
 
 
 $('#customerId,#customerName,#customerAddress,#customerSalary').on('keydown', function (eventOb) {
-    if (eventOb.key == "Tab") {
+    if (eventOb.key === "Tab") {
         eventOb.preventDefault();
     }
     formValidCus();
@@ -122,11 +148,11 @@ $('#customerId,#customerName,#customerAddress,#customerSalary').on('blur', funct
 $("#customerId").on('keyup', function (eventOb) {
     setButton();
 
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidCus();
     }
 
-    if (eventOb.key == "Control") {
+    if (eventOb.key === "Control") {
         var typedCustomerId = $("#customerId").val();
         var srcCustomer = searchCustomerFromID(typedCustomerId);
         $("#customerId").val(srcCustomer.getCustomerId());
@@ -140,21 +166,21 @@ $("#customerId").on('keyup', function (eventOb) {
 
 $("#customerName").on('keyup', function (eventOb) {
     setButton();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidCus();
     }
 });
 
 $("#customerAddress").on('keyup', function (eventOb) {
     setButton();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidCus();
     }
 });
 
 $("#customerSalary").on('keyup', function (eventOb) {
     setButton();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidCus();
     }
 });
