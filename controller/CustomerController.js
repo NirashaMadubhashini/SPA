@@ -4,8 +4,6 @@ $("#btnAddCustomer").click(function () {
         loadAllCustomers();
 });
 
-
-
 $("#btnSearch").click(function () {
     var searchID = $("#txtSearchCusID").val();
 
@@ -54,9 +52,9 @@ function saveCustomer() {
     let dC = duplicateCheck();
 
     if (dC){
-        alert("This Customer Already Added ,Try Again")
+        alert("This CustomerId Already Added ,Try Again")
     }else {
-        alert("Do you want to add this Customer")
+        confirm("Do you want to add this Customer..?")
 
         let customerId = $("#customerId").val();
         let customerName = $("#customerName").val();
@@ -76,11 +74,13 @@ function saveCustomer() {
 
 function searchCustomer(id) {
     for (let i = 0; i < customerDB.length; i++) {
-        if (customerDB[i].id == id) {
+        if (customerDB[i].id === id) {
             return customerDB[i];
         }
     }
 }
+
+
 
 function duplicateCheck(){
     for (var i = 0; i < customerDB.length; i++) {
@@ -108,7 +108,6 @@ $("#btnUpdateCustomer").click(function () {
             customerDB[i].salary = customerSalary;
 
             alert("Successfully Updated")
-
         }
     }
     loadAllCustomers()
