@@ -2,22 +2,6 @@ $("#btnAddItem").click(function () {
     saveItem();
     clearAllItems();
     loadAllItems();
-
-
-    $("#itemTable>tr").click(function () {
-        console.log($(this));
-        let itemCode1 = $(this).children(":eq(0)").text();
-        let itemName1 = $(this).children(":eq(1)").text();
-        let itemPrice1 = $(this).children(":eq(2)").text();
-        let itemQuantity1 = $(this).children(":eq(3)").text();
-
-        console.log(itemCode1, itemName1, itemPrice1, itemQuantity1);
-
-        $("#itemCode").val(itemCode1);
-        $("#itemName").val(itemName1);
-        $("#itemPrice").val(itemPrice1);
-        $("#itemQuantity").val(itemQuantity1);
-    });
 });
 
 $("#btnSearchItem").click(function () {
@@ -36,39 +20,75 @@ $("#btnSearchItem").click(function () {
 });
 
 function loadAllItems() {
+
     $("#itemTable").empty();
     for (var i of itemDB) {
         let row = `<tr><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.price}</td><td>${i.quantity}</td></tr>`;
         $("#itemTable").append(row);
     }
+
+    $("#itemTable>tr").click(function () {
+        console.log($(this));
+        let itemCode1 = $(this).children(":eq(0)").text();
+        let itemName1 = $(this).children(":eq(1)").text();
+        let itemPrice1 = $(this).children(":eq(2)").text();
+        let itemQuantity1 = $(this).children(":eq(3)").text();
+
+        console.log(itemCode1, itemName1, itemPrice1, itemQuantity1);
+
+        $("#itemCode").val(itemCode1);
+        $("#itemName").val(itemName1);
+        $("#itemPrice").val(itemPrice1);
+        $("#itemQuantity").val(itemQuantity1);
+    });
 }
 
 
 function saveItem() {
-    let itemCode = $("#itemCode").val();
-    let itemName = $("#itemName").val();
-    let itemPrice = $("#itemPrice").val();
-    let itemQuantity = $("#itemQuantity").val();
 
-    var itemObject = {
-        itemCode: itemCode,
-        itemName: itemName,
-        price: itemPrice,
-        quantity: itemQuantity
-    };
+    let dCI=duplicateCheckItem();
 
-    itemDB.push(itemObject);
+    if (dCI){
+        alert("This ItemCode Already Added,Try Again")
+    }else {
+        confirm("Do you want to add this Item..?")
+
+        let itemCode = $("#itemCode").val();
+        let itemName = $("#itemName").val();
+        let itemPrice = $("#itemPrice").val();
+        let itemQuantity = $("#itemQuantity").val();
+
+        var itemObject = {
+            itemCode: itemCode,
+            itemName: itemName,
+            price: itemPrice,
+            quantity: itemQuantity
+        };
+
+        itemDB.push(itemObject);
+    }
 }
 
 
 
 function searchItem(itemCode) {
     for (let i = 0; i < itemDB.length; i++) {
-        if (itemDB[i].itemCode == itemCode) {
+        if (itemDB[i].itemCode === itemCode) {
             return itemDB[i];
         }
     }
 }
+
+
+function duplicateCheckItem(){
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#itemCode").val()===itemDB[i].itemCode){
+            return true;
+        }
+    }
+    return false
+}
+
 
 $("#btnUpdateItem").click(function () {
     let itemCode = $("#itemCode").val();
@@ -77,12 +97,14 @@ $("#btnUpdateItem").click(function () {
     let itemQuantity= $("#itemQuantity").val();
 
     for (var i = 0; i < itemDB.length; i++) {
-        if ($("#itemCode").val()==itemDB[i].itemCode){
-            console.log("Enter");
+        if ($("#itemCode").val()===itemDB[i].itemCode){
+
             itemDB[i].itemCode= itemCode;
             itemDB[i].itemName=itemName;
             itemDB[i].price=itemPrice;
             itemDB[i].quantity=itemQuantity;
+
+            alert("Successfully Updated")
         }
     }
     loadAllItems();
@@ -97,9 +119,10 @@ const itemQuantityRegEx = /^[0-9 A-z]{2,}$/;
 
 
 $('#itemCode,#itemName,#itemPrice,#itemQuantity').on('keydown', function (eventOb) {
-    if (eventOb.key == "Tab") {
+    if (eventOb.key === "Tab") {
         eventOb.preventDefault();
     }
+    formValidItem();
 });
 
 $('#itemCode,#itemName,#itemPrice,#itemQuantity').on('blur', function () {
@@ -108,11 +131,11 @@ $('#itemCode,#itemName,#itemPrice,#itemQuantity').on('blur', function () {
 
 $("#itemCode").on('keyup', function (eventOb) {
     setButtonItem();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidItem();
     }
 
-    if (eventOb.key == "Control") {
+    if (eventOb.key === "Control") {
         var typedItemCode = $("#itemCode").val();
         var srcItem = searchItemFromCode(typedItemCode);
         $("#itemCode").val(srcItem.getItemCode());
@@ -126,21 +149,21 @@ $("#itemCode").on('keyup', function (eventOb) {
 
 $("#itemName").on('keyup', function (eventOb) {
     setButtonItem();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidItem();
     }
 });
 
 $("#itemPrice").on('keyup', function (eventOb) {
     setButtonItem();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidItem();
     }
 });
 
 $("#itemQuantity").on('keyup', function (eventOb) {
     setButtonItem();
-    if (eventOb.key == "Enter") {
+    if (eventOb.key === "Enter") {
         checkIfValidItem();
     }
 });
