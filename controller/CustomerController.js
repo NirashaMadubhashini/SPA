@@ -67,7 +67,10 @@ function saveCustomer() {
             address: customerAddress,
             salary: customerSalary
         };
+
         customerDB.push(customerObject);
+
+        // customerDB.push(new CustomerDTO(customerId,customerName,customerAddress,customerSalary));
     }
 
 }
@@ -79,8 +82,6 @@ function searchCustomer(id) {
         }
     }
 }
-
-
 
 function duplicateCheck(){
     for (var i = 0; i < customerDB.length; i++) {
@@ -113,8 +114,6 @@ $("#btnUpdateCustomer").click(function () {
     loadAllCustomers()
     clearAll()
 });
-
-
 
 $("#btnDelete").click(function () {
     var index = 0;
