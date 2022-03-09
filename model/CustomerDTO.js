@@ -1,32 +1,32 @@
-function CustomerDTO(id,name,address,salary) {
-    var __id=id;
-    var __name=name;
-    var __address=address;
+function CustomerDTO(customerId,customerName,customerAddress,salary) {
+    var __customerId=customerId;
+    var __customerName=customerName;
+    var __customerAddress=customerAddress;
     var __salary=salary;
 
-    this.getId = function () {
-        return __id;
+    this.getCustomerId = function () {
+        return __customerId;
     }
-    this.setId = function (v) {
-        __id = v;
+    this.setCustomerId = function (v) {
+        __customerId = v;
     }
-    this.getName = function () {
-        return __name;
+    this.getCustomerName = function () {
+        return __customerName;
     }
-    this.setName = function (v) {
-        __name = v;
+    this.setCustomerName = function (v) {
+        __customerName = v;
     }
-    this.getAddress = function () {
-        return __address;
+    this.getCustomerAddress = function () {
+        return __customerAddress;
     }
-    this.setAddress = function (v) {
-        __address = v;
+    this.setCustomerAddress = function (v) {
+        __customerAddress = v;
     }
-    this.getSalary = function () {
-        return __salary;
+    this.getCustomerSalary= function () {
+        return __customerSalary;
     }
-    this.setSalary = function (v) {
-        __salary = v;
+    this.setCustomerSalary = function (v) {
+        __customerSalary = v;
     }
 
 }
