@@ -126,6 +126,8 @@ $("#btnDelete").click(function () {
     customerDB.splice(index, 1);
     clearAll();
     $(this).closest('tr').remove();
+
+    confirm("Do you want to delete this Customer..?")
 });
 
 
