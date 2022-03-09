@@ -112,6 +112,20 @@ $("#btnUpdateItem").click(function () {
 });
 
 
+$("#btnDeleteItem").click(function () {
+    var index = 0;
+    for (var i = 0; i < itemDB.length; i++) {
+        if ($("#itemCode").val() === itemDB[i].itemCode) {
+            index = i;
+        }
+    }
+    itemDB.splice(index, 1);
+    clearAllItems();
+    $(this).closest('tr').remove();
+});
+
+
+
 const itemCodeRegEx = /^(I00-)[0-9]{3}$/;
 const itemNameRegEx = /^[A-z ]{2,20}$/;
 const itemPriceRegEx = /^[0-9]{2,}$/;
