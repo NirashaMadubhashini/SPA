@@ -122,6 +122,9 @@ $("#btnDeleteItem").click(function () {
     itemDB.splice(index, 1);
     clearAllItems();
     $(this).closest('tr').remove();
+
+    confirm("Do you want to add this Item..?")
+
 });
 
 
