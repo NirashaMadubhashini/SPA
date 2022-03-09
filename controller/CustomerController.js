@@ -119,7 +119,7 @@ $("#btnUpdateCustomer").click(function () {
 $("#btnDelete").click(function () {
     var index = 0;
     for (var i = 0; i < customerDB.length; i++) {
-        if ($("#txtItemCode").val() == customerDB[i].id) {
+        if ($("#customerId").val() === customerDB[i].id) {
             index = i;
         }
     }
@@ -127,13 +127,6 @@ $("#btnDelete").click(function () {
     clearAll();
     $(this).closest('tr').remove();
 });
-
-
-
-
-
-
-
 
 
 
