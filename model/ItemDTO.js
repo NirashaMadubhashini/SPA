@@ -1,32 +1,56 @@
-function ItemDTO(code,name,price,quantity) {
-    var __code=code;
-    var __itemName=name;
-    var __price=price;
-    var __quantity=quantity;
+function ItemDTO(icode,iname,iprice,iqty) {
 
-    this.getCode = function () {
-        return __code;
-    }
-    this.setCode = function (v) {
-        __code = v;
-    }
-    this.getItemName = function () {
-        return __itemName;
-    }
-    this.setItemName = function (v) {
-        __itemName = v;
-    }
-    this.getPrice = function () {
-        return __price;
-    }
-    this.setPrice = function (v) {
-        __price = v;
-    }
-    this.getQuantity = function () {
-        return __quantity;
-    }
-    this.setQuantity = function (v) {
-        __quantity = v;
-    }
+    var code =icode;
+    var name=iname;
+    var price=iprice;
+    var qty=iqty;
 
+
+    Object.defineProperty(this,"icode",{
+        get:function()
+        {
+            return code;
+        },
+        set:function(icode)
+        {
+            this.code=icode;
+        }
+    });
+
+
+    Object.defineProperty(this,"iname",{
+        get:function()
+        {
+            return name;
+        },
+        set:function(iname)
+        {
+            this.name=iname;
+        }
+    });
+
+
+    Object.defineProperty(this,"iprice",{
+        get:function()
+        {
+            return price;
+        },
+        set:function(iprice)
+        {
+            this.price=iprice;
+        }
+    });
+
+
+    Object.defineProperty(this,"iqty",{
+        get:function()
+        {
+            return qty;
+        },
+        set:function(iqty)
+        {
+            this.qty=iqty;
+        }
+    });
 }
+
