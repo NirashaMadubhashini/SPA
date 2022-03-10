@@ -29,17 +29,24 @@ function loadAllItems() {
 
     $("#itemTable>tr").click(function () {
         console.log($(this));
-        let itemCode1 = $(this).children(":eq(0)").text();
-        let itemName1 = $(this).children(":eq(1)").text();
-        let itemPrice1 = $(this).children(":eq(2)").text();
-        let itemQuantity1 = $(this).children(":eq(3)").text();
+        // let itemCode1 = $(this).children(":eq(0)").text();
+        // let itemName1 = $(this).children(":eq(1)").text();
+        // let itemPrice1 = $(this).children(":eq(2)").text();
+        // let itemQuantity1 = $(this).children(":eq(3)").text();
+        //
+        // console.log(itemCode1, itemName1, itemPrice1, itemQuantity1);
 
-        console.log(itemCode1, itemName1, itemPrice1, itemQuantity1);
+        let itemDTO=new ItemDTO(
+            $(this).children(":eq(0)").text(),
+            $(this).children(":eq(1)").text(),
+            $(this).children(":eq(2)").text(),
+            $(this).children(":eq(3)").text()
+        )
 
-        $("#itemCode").val(itemCode1);
-        $("#itemName").val(itemName1);
-        $("#itemPrice").val(itemPrice1);
-        $("#itemQuantity").val(itemQuantity1);
+        $("#itemCode").val(itemDTO.icode);
+        $("#itemName").val(itemDTO.iname);
+        $("#itemPrice").val(itemDTO.iprice);
+        $("#itemQuantity").val(itemDTO.iqty);
     });
 }
 
@@ -53,16 +60,23 @@ function saveItem() {
     }else {
         confirm("Do you want to add this Item..?")
 
-        let itemCode = $("#itemCode").val();
-        let itemName = $("#itemName").val();
-        let itemPrice = $("#itemPrice").val();
-        let itemQuantity = $("#itemQuantity").val();
+        // let itemCode = $("#itemCode").val();
+        // let itemName = $("#itemName").val();
+        // let itemPrice = $("#itemPrice").val();
+        // let itemQuantity = $("#itemQuantity").val();
+
+        let itemDTO=new ItemDTO(
+            $("#itemCode").val(),
+            $("#itemName").val(),
+            $("#itemPrice").val(),
+            $("#itemQuantity").val()
+        )
 
         var itemObject = {
-            itemCode: itemCode,
-            itemName: itemName,
-            price: itemPrice,
-            quantity: itemQuantity
+            itemCode: itemDTO.icode,
+            itemName: itemDTO.iname,
+            price: itemDTO.iprice,
+            quantity: itemDTO.iqty
         };
 
         itemDB.push(itemObject);
@@ -91,18 +105,25 @@ function duplicateCheckItem(){
 
 
 $("#btnUpdateItem").click(function () {
-    let itemCode = $("#itemCode").val();
-    let itemName = $("#itemName").val();
-    let itemPrice = $("#itemPrice").val();
-    let itemQuantity= $("#itemQuantity").val();
+    // let itemCode = $("#itemCode").val();
+    // let itemName = $("#itemName").val();
+    // let itemPrice = $("#itemPrice").val();
+    // let itemQuantity= $("#itemQuantity").val();
+
+    let itemDTO=new ItemDTO(
+        $("#itemCode").val(),
+        $("#itemName").val(),
+        $("#itemPrice").val(),
+        $("#itemQuantity").val()
+    )
 
     for (var i = 0; i < itemDB.length; i++) {
         if ($("#itemCode").val()===itemDB[i].itemCode){
 
-            itemDB[i].itemCode= itemCode;
-            itemDB[i].itemName=itemName;
-            itemDB[i].price=itemPrice;
-            itemDB[i].quantity=itemQuantity;
+            itemDB[i].itemCode= itemDTO.icode;
+            itemDB[i].itemName=itemDTO.iname;
+            itemDB[i].price=itemDTO.iprice;
+            itemDB[i].quantity=itemDTO.iqty;
 
             alert("Successfully Updated")
         }
