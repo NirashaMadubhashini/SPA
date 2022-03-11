@@ -4,6 +4,8 @@ $("#btnAddItem").click(function () {
     loadAllItems();
 });
 
+
+
 $("#btnSearchItem").click(function () {
     var searchID = $("#txtSearchItemCode").val();
 
