@@ -17,7 +17,9 @@
         <div class="container-fluid">
             <img src="assets/img/netscape.png" alt="" width="30" height="25" class="d-inline-block align-text-top ms-3">
             <a class="navbar-brand" href="#">Nirasha POS System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -29,7 +31,8 @@
                         <a class="nav-link" id="linkOrder" href="#">Order</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             Other
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -38,7 +41,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-<!--                        <a class="nav-link" href="Loging.html">Back</a>-->
+                        <!--                        <a class="nav-link" href="Loging.html">Back</a>-->
                     </li>
                 </ul>
             </div>
@@ -125,22 +128,22 @@
                     <form>
                         <div class="form-group">
                             <label for="customerId">Customer Id</label>
-                            <input type="customerId"  class="form-control" id="customerId">
+                            <input type="customerId" class="form-control" id="customerId">
                             <p><small id="lblcusid" class="text-danger pl-1"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customerName">Customer Name</label>
-                            <input type="customerName"  class="form-control" id="customerName">
+                            <input type="customerName" class="form-control" id="customerName">
                             <p><small id="lblcusname" class="text-danger pl-1"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customerAddress">Address</label>
-                            <input type="customerAddress"  class="form-control" id="customerAddress">
+                            <input type="customerAddress" class="form-control" id="customerAddress">
                             <p><small id="lblcusaddress" class="text-danger pl-1"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customerSalary">Salary</label>
-                            <input type="customerSalary"  class="form-control" id="customerSalary">
+                            <input type="customerSalary" class="form-control" id="customerSalary">
                             <p><small id="lblcussalary" class="text-danger pl-1"></small></p>
                         </div>
                         <br>
@@ -275,7 +278,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Customer-Id</label>
-                        <select class="form-control" id="selectCusID"></select>
+                        <select aria-label="Default select example" class="form-select" id="selectCusID"></select>
                         <span class="control-error" id="cus-empty-error"></span>
                     </div>
                     <div class="form-group ">
@@ -299,7 +302,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Item-Code</label>
-                        <select class="form-control" id="selectItemCode"></select>
+                        <select aria-label="Default select example" class="form-select" id="selectItemCode"></select>
                         <span class="control-error"
                               id="item-empty-error"></span>
                     </div>
@@ -322,7 +325,9 @@
                         <span class="control-error" id="order-qty-empty-error"></span>
                     </div>
                     <br>
-                    <button type="button" id="btnAddToCart" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart</button>
+                    <button type="button" id="btnAddToCart" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add
+                        To Cart
+                    </button>
                     <button type="button" id="btnRemove" class="btn btn-danger">Delete</button>
                 </div>
             </div>
@@ -335,12 +340,12 @@
                             <span class="text-primary" id="total-text">Total : </span>
                         </div>
                         <div class="col-12">
-                            <span id="total"class="text-primary fs-3 fw-bolder">00.0  Rs/=</span>
+                            <span id="total" class="text-primary fs-3 fw-bolder">00.0  Rs/=</span>
                             <div class="col-12">
                                 <span id="subTotal-text" class="text-danger">SubTotal : </span>
                             </div>
                             <div class="col-12">
-                                <span id="subtotal"class="text-danger fs-3 fw-bolder">00.0  Rs/=</span>
+                                <span id="subtotal" class="text-danger fs-3 fw-bolder">00.0  Rs/=</span>
                             </div>
                         </div>
                     </div>
@@ -362,7 +367,8 @@
                         </div>
                         <br>
                         <br>
-                        <button type="button" id="btnPay" class="btn btn-success"><i class="fa fa-shopping-cart">&nbsp;</i>Purchase Order
+                        <button type="button" id="btnPay" class="btn btn-success"><i
+                                class="fa fa-shopping-cart">&nbsp;</i>Purchase Order
                         </button>
                     </div>
                 </div>
@@ -462,31 +468,32 @@
     });
 
 
+    $("#linkOrderPage").click(function () {
+        setCustomerIdsToComboBox();
+        setItemCodesToComboBox();
+    });
 
-    $("#placeOrder").click(function () {
+    $("#linkOrder").click(function () {
         setCustomerIdsToComboBox();
         setItemCodesToComboBox();
     });
 
     function setCustomerIdsToComboBox() {
         $("#selectCusID").empty();
+        $("#selectCusID").append(new Option("-Select Item-", ""));
         for (var i = 0; i < customerDB.length; i++) {
-            $("#selectCusID").append(new Option(customerDB[i].id));
+            $("#selectCusID").append(new Option(customerDB[i].id, i));
         }
     }
 
     function setItemCodesToComboBox() {
         $("#selectItemCode").empty();
+        $("#selectItemCode").append(new Option("-Select Item-", ""));
         for (var i = 0; i < itemDB.length; i++) {
-            $("#selectItemCode").append(new Option(itemDB[i].code));
+            $("#selectItemCode").append(new Option(itemDB[i].itemCode, i));
+
         }
     }
-
-
-
-
-
-
 
 
 </script>
