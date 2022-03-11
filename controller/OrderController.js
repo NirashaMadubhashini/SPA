@@ -5,13 +5,15 @@ $("#btnAddToCart").click(function () {
 });
 
 function loadAllOrders() {
-
     $("#tblOrder").empty();
     for (var i of orderDB) {
         let row = `<tr><td>${i.orderId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.qty}</td><td>${i.unitPrice}</td><td>${i.total}</td></tr>`;
         $("#tblOrder").append(row);
     }
 }
+
+
+
 
 function saveOrder() {
     let orderDTO = new OrderDTO(
