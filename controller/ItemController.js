@@ -11,10 +11,11 @@ $("#btnSearchItem").click(function () {
 
     var response = searchItem(searchID);
     if (response) {
-        $("#itemCode").val(response.itemCode);
-        $("#itemName").val(response.itemName);
-        $("#itemPrice").val(response.price);
-        $("#itemQuantity").val(response.quantity);
+        new ItemDTO(
+        $("#itemCode").val(response.itemCode),
+        $("#itemName").val(response.itemName),
+        $("#itemPrice").val(response.price),
+        $("#itemQuantity").val(response.quantity));
     }else{
         clearAllItems();
         alert("No Such a Item");
@@ -31,12 +32,6 @@ function loadAllItems() {
 
     $("#itemTable>tr").click(function () {
         console.log($(this));
-        // let itemCode1 = $(this).children(":eq(0)").text();
-        // let itemName1 = $(this).children(":eq(1)").text();
-        // let itemPrice1 = $(this).children(":eq(2)").text();
-        // let itemQuantity1 = $(this).children(":eq(3)").text();
-        //
-        // console.log(itemCode1, itemName1, itemPrice1, itemQuantity1);
 
         let itemDTO=new ItemDTO(
             $(this).children(":eq(0)").text(),
@@ -61,11 +56,6 @@ function saveItem() {
         alert("This ItemCode Already Added,Try Again")
     }else {
         confirm("Do you want to add this Item..?")
-
-        // let itemCode = $("#itemCode").val();
-        // let itemName = $("#itemName").val();
-        // let itemPrice = $("#itemPrice").val();
-        // let itemQuantity = $("#itemQuantity").val();
 
         let itemDTO=new ItemDTO(
             $("#itemCode").val(),
