@@ -460,6 +460,35 @@
         $("#customer").css("display", "none");
         $("#placeOrder").css("display", "none");
     });
+
+
+
+    $("#placeOrder").click(function () {
+        setCustomerIdsToComboBox();
+        setItemCodesToComboBox();
+    });
+
+    function setCustomerIdsToComboBox() {
+        $("#selectCusID").empty();
+        for (var i = 0; i < customerDB.length; i++) {
+            $("#selectCusID").append(new Option(customerDB[i].id));
+        }
+    }
+
+    function setItemCodesToComboBox() {
+        $("#selectItemCode").empty();
+        for (var i = 0; i < itemDB.length; i++) {
+            $("#selectItemCode").append(new Option(itemDB[i].code));
+        }
+    }
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
