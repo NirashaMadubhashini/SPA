@@ -254,6 +254,7 @@
                         <label for="txtOrderId">Order-Id</label>
                         <input class="form-control" id="txtOrderId" name="OrderId" type="text"
                                placeholder="Auto-Generate">
+                        <p><small id="lblorderId" class="text-danger pl-1"></small></p>
                     </div>
                     <div class="form-group ">
                         <label for="txtDate">Date</label>
@@ -274,11 +275,8 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Customer-Id</label>
-                        <select class="form-control" id="selectCusID">
-
-                        </select>
-                        <span class="control-error"
-                              id="cus-empty-error"></span>
+                        <select class="form-control" id="selectCusID"></select>
+                        <span class="control-error" id="cus-empty-error"></span>
                     </div>
                     <div class="form-group ">
                         <label for="txtCusName">Customer-Name</label>
@@ -320,17 +318,32 @@
                     <div class="form-group ">
                         <label for="txt-qty">Order-Quantity</label>
                         <input class="form-control" id="txt-qty" min="1" type="number">
+                        <p><small id="lblorderQty" class="text-danger pl-1"></small></p>
                         <span class="control-error" id="order-qty-empty-error"></span>
                     </div>
                     <br>
-                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" id="btnAddToCart" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart</button>
+                    <button type="button" id="btnRemove" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
         <div class=" col-xl-3 col-lg-3 col-md-6 col-12">
             <div class="card bg-light mt-xl-3 ms-4">
                 <div class="card-body">
+                    <div class="form-group ">
+                        <div class="col-12">
+                            <span class="text-primary" id="total-text">Total : </span>
+                        </div>
+                        <div class="col-12">
+                            <span id="total"class="text-primary fs-3 fw-bolder">00.0  Rs/=</span>
+                            <div class="col-12">
+                                <span id="subTotal-text" class="text-danger">SubTotal : </span>
+                            </div>
+                            <div class="col-12">
+                                <span id="subtotal"class="text-danger fs-3 fw-bolder">00.0  Rs/=</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group ">
                         <label>Discount</label>
                         <input class="form-control" id="txtDiscount" min="0" type="number">
@@ -339,6 +352,7 @@
                         <div class="form-group ">
                             <label>Cash</label>
                             <input class="form-control" id="txtCash" min="0" type="number">
+                            <p><small id="lblcash" class="text-danger pl-1"></small></p>
                             <span class="control-error"
                                   id="cash-empty-error"></span>
                         </div>
@@ -347,29 +361,8 @@
                             <input type="text" class="form-control" id="txtChange" required>
                         </div>
                         <br>
-                        <div class="form-group ">
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <span class="text-primary" id="total-text">Total : </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <div class="col-12">
-                                <span id="total"class="text-primary fs-3 fw-bolder">00.0</span> Rs/=
-
-                                <div class="col-12">
-                                    <span id="total-text1" class="text-danger">SubTotal : </span>
-                                </div>
-                                <div class="col-12">
-                                    <span id="subtotal"class="text-danger fs-3 fw-bolder">00.0</span> Rs/=
-                                </div>
-                            </div>
-                        </div>
                         <br>
-                        <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart">&nbsp;</i>Payment
+                        <button type="button" id="btnPay" class="btn btn-success"><i class="fa fa-shopping-cart">&nbsp;</i>Purchase Order
                         </button>
                     </div>
                 </div>
@@ -406,6 +399,7 @@
 <script src="model/CustomerDTO.js"></script>
 <script src="model/ItemDTO.js"></script>
 <script src="model/OrderDTO.js"></script>
+<script src="model/OrderDetailDTO.js"></script>
 
 <script>
     $("#home").css("display", "block");
