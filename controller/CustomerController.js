@@ -11,15 +11,11 @@ $("#btnSearch").click(function () {
 
     var response = searchCustomer(searchID);
     if (response) {
-        $("#customerId").val(response.id);
-        $("#customerName").val(response.name);
-        $("#customerAddress").val(response.address);
-        $("#customerSalary").val(response.salary);
-        // let customerDTO = new CustomerDTO(
-        //     $("#customerId").val(customerDTO.cid),
-        //     $("#customerName").val(customerDTO.cname),
-        //     $("#customerAddress").val(customerDTO.caddress),
-        //     $("#customerSalary").val(customerDTO.csalary));
+        new CustomerDTO(
+            $("#customerId").val(response.id),
+            $("#customerName").val(response.name),
+            $("#customerAddress").val(response.address),
+            $("#customerSalary").val(response.salary));
     } else {
         clearAll();
         alert("No Such a Customer");
@@ -64,7 +60,6 @@ function saveCustomer() {
     } else {
         confirm("Do you want to add this Customer..?")
 
-        // let cidD = $("#customerId").val();
         let customerDTO = new CustomerDTO(
             $("#customerId").val(),
             $("#customerName").val(),
