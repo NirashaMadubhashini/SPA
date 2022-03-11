@@ -1,21 +1,31 @@
+$("#btnPay").click(function () {
+    // saveOrder();
+    clearAllOrder();
+    // loadAllOrders();
+});
 $("#btnAddToCart").click(function () {
     saveOrder();
-    clearAllOrder();
+    // clearAllOrder();
     loadAllOrders();
 });
 
 function loadAllOrders() {
-    $("#tblOrder").empty();
+    $("#orderTable").empty();
     for (var i of orderDB) {
-        let row = `<tr><td>${i.orderId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.qty}</td><td>${i.unitPrice}</td><td>${i.total}</td></tr>`;
-        $("#tblOrder").append(row);
+        let row = `<tr><td>${i.orderId}</td><td>${Array(item).itemCode}</td><td>${i.qty}</td><td>${i.unitPrice}</td><td>${i.total}</td></tr>`;
+        $("#orderTable").append(row);
     }
 }
 
-
-
-
 function saveOrder() {
+
+    let dC = duplicateCheckOrderId();
+
+    if (dC) {
+        alert("This OrderId Already Added ,Try Again")
+    } else {
+        confirm("Do you want to add this Order..?")
+
     let orderDTO = new OrderDTO(
         $("#txtOrderId").val(),
         $("#selectCusID").val(),
@@ -29,10 +39,11 @@ function saveOrder() {
         customerId: orderDTO.cid,
         itemCode: orderDTO.icode,
         qtOH: orderDTO.qtyOnHnd,
-        tot:orderDTO.cost
+        tot: orderDTO.cost
     }
 
     orderDB.push(orderObject)
+}
 }
 
 $("#btnRemove").click(function () {
@@ -51,10 +62,15 @@ $("#btnRemove").click(function () {
 
 
 
+function duplicateCheckOrderId() {
+    for (var i = 0; i < orderDB.length; i++) {
+        if ($("#txtOrderId").val() === orderDB[i].orderId) {
 
-
-
-
+            return true;
+        }
+    }
+    return false
+}
 
 
 const orderIDRegEx=/^(O00-)[0-9]{3}$/;
