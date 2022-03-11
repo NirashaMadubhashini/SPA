@@ -1,58 +1,65 @@
-function OrderDTO(orderId,itemCode,itemName,qty,price,total) {
-var __orderId=orderId;
-var __itemCode=itemCode;
-var __itemName=itemName;
-var __qty=qty;
-var __price=price;
-var __total=total;
+function OrderDTO(oid,item,cid,qtyOnHnd,cost) {
+    var orderId =oid;
+    var cusId=cid;
+    var items = new Array(item);
+    var qtOH=qtyOnHnd;
+    var tot=cost;
 
-this.getOrderId=function () {
-return __orderId;
+    Object.defineProperty(this,"oid",{
+        get:function()
+        {
+            return orderId;
+        },
+        set:function(oid)
+        {
+            this.orderId=oid;
+        }
+    });
+
+
+    Object.defineProperty(this,"cid",{
+        get:function()
+        {
+            return cusId;
+        },
+        set:function(cid)
+        {
+            this.cusId=cid;
+        }
+    });
+
+
+    Object.defineProperty(this,"item",{
+        get:function()
+        {
+            return items;
+        },
+        set:function(item)
+        {
+            this.items=item;
+        }
+    });
+
+    Object.defineProperty(this,"qtyOnHnd",{
+        get:function()
+        {
+            return qtOH;
+        },
+        set:function(qtyOnHnd)
+        {
+            this.qtOH=qtyOnHnd;
+        }
+    });
+
+
+    Object.defineProperty(this,"cost",{
+        get:function()
+        {
+            return tot;
+        },
+        set:function(cost)
+        {
+            this.tot=cost;
+        }
+    });
 }
-this.setOrderId=function () {
-return __orderId;
-}
-
-this.getItemCode=function () {
-return __itemCode;
-}
-this.setItemCode=function () {
-return __itemCode;
-}
-
-this.getItemName=function () {
-return __itemName;
-}
-this.setItemName=function () {
-return __itemName;
-}
-
-this.getQty=function () {
-return __qty;
-}
-this.setQty=function () {
-return __qty;
-}
-
-this.getPrice=function () {
-return __price;
-}
-this.setPrice=function () {
-return __price;
-}
-
-this.getTotal=function () {
-return __total;
-}
-this.setTotal=function () {
-return __total;
-}
-
-
-}
-
-
-
-
-
-
