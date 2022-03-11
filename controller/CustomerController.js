@@ -1,8 +1,14 @@
 $("#btnAddCustomer").click(function () {
+
     saveCustomer();
     clearAll();
     loadAllCustomers();
+
 });
+
+window.onload = (event) => {
+    console.log('page is fully loaded');
+};
 
 $("#btnSearch").click(function () {
     var searchID = $("#txtSearchCusID").val();
@@ -14,10 +20,10 @@ $("#btnSearch").click(function () {
         $("#customerAddress").val(response.address);
         $("#customerSalary").val(response.salary);
         // let customerDTO = new CustomerDTO(
-        //     $("#customerId").val(response.id),
-        //     $("#customerName").val(response.name),
-        //     $("#customerAddress").val(response.address),
-        //     $("#customerSalary").val(response.salary));
+        //     $("#customerId").val(customerDTO.cid),
+        //     $("#customerName").val(customerDTO.cname),
+        //     $("#customerAddress").val(customerDTO.caddress),
+        //     $("#customerSalary").val(customerDTO.csalary));
     } else {
         clearAll();
         alert("No Such a Customer");
@@ -27,9 +33,15 @@ $("#btnSearch").click(function () {
 function loadAllCustomers() {
 
     $("#customerTable").empty();
+    let comboSelect = document.getElementById('selectCusID');
     for (var i of customerDB) {
         let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.salary}</td></tr>`;
         $("#customerTable").append(row);
+        let opt = document.createElement("option");
+        opt.value = i.id;
+        opt.text = i.id;
+        comboSelect.appendChild(opt);
+
     }
 
 
@@ -51,6 +63,10 @@ function loadAllCustomers() {
 
 }
 
+function loadCustomerCombobox() {
+
+}
+
 function saveCustomer() {
 
     let dC = duplicateCheck();
@@ -60,11 +76,7 @@ function saveCustomer() {
     } else {
         confirm("Do you want to add this Customer..?")
 
-        // let customerId = $("#customerId").val();
-        // let customerName = $("#customerName").val();
-        // let customerAddress = $("#customerAddress").val();
-        // let customerSalary = $("#customerSalary").val();
-
+        let cidD = $("#customerId").val();
         let customerDTO = new CustomerDTO(
             $("#customerId").val(),
             $("#customerName").val(),
@@ -79,10 +91,29 @@ function saveCustomer() {
         };
 
         customerDB.push(customerObject)
+        // comboSelect("<option>"+cidD+"</option>");
+        comboSelect(cidD);
+
 
     }
 
 }
+function comboSelect(option) {
+    let comboSelect = document.getElementById('selectCusID');
+    // let comboSelect = $("#selectCusID");
+    let opt = document.createElement("option");
+    opt.value = option;
+    // opt.text = option;
+    comboSelect.appendChild(opt);
+
+    // for (var i of customerDB) {
+    //     let opt = document.createElement("option");
+    //     opt.value = i.name;
+    //     opt.text = i.name.toUpperCase();
+    //     comboSelect.appendChild(opt);
+    // }
+}
+
 
 function searchCustomer(id) {
     for (let i = 0; i < customerDB.length; i++) {
@@ -177,8 +208,6 @@ $("#customerId").on('keyup', function (eventOb) {
         $("#customerAddress").val(srcCustomer.getCustomerAddress());
         $("#customerSalary").val(srcCustomer.getCustomerSalary());
     }
-
-
 });
 
 $("#customerName").on('keyup', function (eventOb) {
