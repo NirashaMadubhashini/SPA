@@ -77,13 +77,13 @@ function duplicateCheckOrderId() {
 
 
 
-$('#selectCusID').click(function () {
+$('#selectCusID').change(function () {
     var customerId = $('#selectCusID').val();
     for (let i = 0; i < customerDB.length; i++) {
         if (customerDB[i].getCustomerId() == customerId) {
             $('#txtCusName').val(customerDB[i].getCustomerName());
             $('#txtAddress').val(customerDB[i].getCustomerAddress());
-            $('#orderAddress').val(customerDB[i].getCustomerSalary());
+            $('#txtSalary').val(customerDB[i].getCustomerSalary());
         }
     }
 });
