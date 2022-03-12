@@ -30,7 +30,7 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 670px;
+        top: 685px;
         left: 0px;
     }
 
@@ -67,9 +67,8 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 625px;
+        top: 680px;
         left: 0px;
-        width: 100%;
     }
 
 }
@@ -105,11 +104,9 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 625px;
+        top: 635px;
         left: 0px;
-        width: 100%;
     }
-
 }
 @media all and (min-width: 768px) and (max-width: 1024px){
     .btn-primary:disabled {
@@ -142,9 +139,8 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 500px;
+        top: 550px;
         left: 0px;
-        width: 100%;
     }
 }
 @media all and (min-width: 1024px) and (max-width: 1440px){
@@ -182,9 +178,8 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 500px;
+        top: 480px;
         left: 0px;
-        width: 100%;
     }
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         width: 84%;
