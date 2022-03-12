@@ -30,7 +30,7 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 680px;
+        top: 650px;
         left: 0px;
     }
 
@@ -67,9 +67,8 @@
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 625px;
+        top: 650px;
         left: 0px;
-        width: 100%;
     }
 
 }
@@ -102,14 +101,19 @@
     .pt-3 {
         padding-top: 45rem!important;
     }
+    /*.table {*/
+    /*    margin-right: 12px;*/
+    /*    position: absolute;*/
+    /*    top: 625px;*/
+    /*    left: 0px;*/
+    /*    width: 100%;*/
+    /*}*/
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 625px;
+        top: 650px;
         left: 0px;
-        width: 100%;
     }
-
 }
 @media all and (min-width: 768px) and (max-width: 1024px){
     .btn-primary:disabled {
@@ -139,12 +143,18 @@
     .pt-3 {
         padding-top: 18rem!important;
     }
+    /*.table {*/
+    /*    margin-right: 12px;*/
+    /*    position: absolute;*/
+    /*    top: 500px;*/
+    /*    left: 0px;*/
+    /*    width: 100%;*/
+    /*}*/
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 500px;
+        top: 535px;
         left: 0px;
-        width: 100%;
     }
 }
 @media all and (min-width: 1024px) and (max-width: 1440px){
@@ -179,12 +189,18 @@
     .pt-3 {
         padding-top: 18rem!important;
     }
+    /*.table {*/
+    /*    margin-right: 12px;*/
+    /*    position: absolute;*/
+    /*    top: 500px;*/
+    /*    left: 0px;*/
+    /*    width: 100%;*/
+    /*}*/
     .table {
         margin-right: 12px;
         position: absolute;
-        top: 500px;
+        top: 480px;
         left: 0px;
-        width: 100%;
     }
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         width: 84%;
