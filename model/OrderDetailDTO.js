@@ -4,7 +4,7 @@ function OrderDetailDTO(orderid,itcode,itname,itqty,itprice,ittot) {
     var name=itname;
     var qty=itqty;
     var price=itprice;
-    var total=ittot;
+    var rs=ittot;
 
 
 
@@ -68,11 +68,11 @@ function OrderDetailDTO(orderid,itcode,itname,itqty,itprice,ittot) {
     Object.defineProperty(this,"ittot",{
         get:function()
         {
-            return total;
+            return rs;
         },
         set:function(ittot)
         {
-            this.total=ittot;
+            this.rs=ittot;
         }
     });
 
