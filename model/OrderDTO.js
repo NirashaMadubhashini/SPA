@@ -1,4 +1,4 @@
-function OrderDTO(oid,item,cid,qtyOnHnd,cost) {
+function OrderDTO(oid,cid,item,qtyOnHnd,cost) {
     var orderId =oid;
     var cusId=cid;
     var items = new Array(item);
