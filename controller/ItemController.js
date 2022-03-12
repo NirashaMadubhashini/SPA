@@ -145,7 +145,7 @@ $("#btnDeleteItem").click(function () {
 const itemCodeRegEx = /^(I00-)[0-9]{3}$/;
 const itemNameRegEx = /^[A-z ]{2,20}$/;
 const itemPriceRegEx = /^[0-9]{2,}$/;
-const itemQuantityRegEx = /^[0-9 A-z]{2,}$/;
+const itemQuantityRegEx = /^[0-9]{2,}$/;
 
 
 $('#itemCode,#itemName,#itemPrice,#itemQuantity').on('keydown', function (eventOb) {
