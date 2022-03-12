@@ -73,6 +73,26 @@ function duplicateCheckOrderId() {
 }
 
 
+
+
+
+
+$('#selectCusID').click(function () {
+    var customerId = $('#selectCusID').val();
+    for (let i = 0; i < customerDB.length; i++) {
+        if (customerDB[i].getCustomerId() == customerId) {
+            $('#txtCusName').val(customerDB[i].getCustomerName());
+            $('#txtAddress').val(customerDB[i].getCustomerAddress());
+            $('#orderAddress').val(customerDB[i].getCustomerSalary());
+        }
+    }
+});
+
+
+
+
+
+
 const orderIDRegEx=/^(O00-)[0-9]{3}$/;
 const qtOHRegEx = /^[0-9 A-z]{2,}$/;
 const cashRegEx = /^[0-9]{2,}$/;
