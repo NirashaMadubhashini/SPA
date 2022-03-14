@@ -1,7 +1,6 @@
 function OrderDetailDTO(orderid,itcode,itname,itqty,itprice,ittot) {
     var order =orderid;
     var code =itcode;
-    var name=itname;
     var qty=itqty;
     var price=itprice;
     var rs=ittot;
@@ -31,17 +30,6 @@ function OrderDetailDTO(orderid,itcode,itname,itqty,itprice,ittot) {
         }
     });
 
-
-    Object.defineProperty(this,"itname",{
-        get:function()
-        {
-            return name;
-        },
-        set:function(itname)
-        {
-            this.name=itname;
-        }
-    });
 
     Object.defineProperty(this,"itqty",{
         get:function()
