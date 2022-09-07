@@ -4,7 +4,6 @@ There are some links that I use to make this SPA System.
 
 github = https://github.com/NirashaMadubhashini
 
-<<<<<<< HEAD
 
 ##Screenshots of SPA System##
 
