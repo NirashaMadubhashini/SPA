@@ -7,21 +7,14 @@ github = https://github.com/NirashaMadubhashini
 
 ##Screenshots of SPA System##
 
+DashBoard
+![screenshot](assets/posImg/index.png)
 
-01.Loging
-![screenshot](assets/posImg/login.png)
+Customer
+![screenshot](assets/posImg/customer.png)
 
-02.DashBoard
-![screenshot](assets/posImg/Dashboard.png)
+Items
+![screenshot](assets/posImg/item.png)
 
-03.EditProfile
-![screenshot](assets/posImg/editProfile.png)
-
-04.ManageCustomers
-![screenshot](assets/posImg/Manage%20Customer.png)
-
-05.ManageItems
-![screenshot](assets/posImg/Manage%20Item.png)
-
-06.PlaceOrder
-![screenshot](assets/posImg/Place%20Order.png)
+PlaceOrder
+![screenshot](assets/posImg/order.png)
